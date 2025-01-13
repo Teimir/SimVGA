@@ -12,10 +12,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "RGB[2]",
-					"strict" : false
-				},
-				{
 					"name" : "HVsync[0]",
 					"strict" : false
 				},
@@ -29,10 +25,6 @@
 				},
 				{
 					"name" : "leds[1]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[2]",
 					"strict" : false
 				}
 			]

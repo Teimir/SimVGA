@@ -23,7 +23,7 @@ module vga
               V_SYNC              =   2,  // Vertical sync # lines
               V_TOP               =  33,  // Vertical top border
 
-              CLK_MHZ             =  50,  // Clock frequency (50 or 100 MHz)
+              CLK_MHZ             =  25,  // Clock frequency (50 or 100 MHz)
               PIXEL_MHZ           =  25   // Pixel clock frequency of VGA in MHz
 )
 (
@@ -36,8 +36,6 @@ module vga
     output logic [VPOS_WIDTH - 1:0] vpos,
     output logic                    pixel_clk
 );
-
-    // Derived constants
 
     localparam H_SYNC_START  = H_DISPLAY    + H_FRONT + N_MIXER_PIPE_STAGES,
                H_SYNC_END    = H_SYNC_START + H_SYNC  - 1,
@@ -99,8 +97,6 @@ module vga
         end
     end
 
-
-
     // Making all outputs registered
 
     always_ff @ (posedge clk or posedge rst)
@@ -113,7 +109,7 @@ module vga
             hpos        <= 1'b0;
             vpos        <= 1'b0;
         end
-        else
+        else if (clk_en)
         begin
             hsync       <= ~ (    d_hpos >= H_SYNC_START
                                && d_hpos <= H_SYNC_END   );
@@ -128,5 +124,6 @@ module vga
             vpos        <= d_vpos;
         end
     end
+
 
 endmodule
