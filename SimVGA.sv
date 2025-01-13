@@ -40,7 +40,7 @@ end
 reg [2:0] charf [80][60];
 
 always_comb begin
-	RGB = charf [HVpos[0]>>3][HVpos[0]>>3];
+	RGB = charf [HVpos[0]>>3][HVpos[1]>>3];
 	if (HVpos[0] == HVpos[1]) RGB = 3'b010;
 end
 

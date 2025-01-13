@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Jan 13 04:53:33 2025
+Fitter Status : Successful - Mon Jan 13 04:56:18 2025
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : SimVGA
 Top-level Entity Name : SimVGA
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 86 / 6,272 ( 1 % )
-    Total combinational functions : 86 / 6,272 ( 1 % )
+Total logic elements : 87 / 6,272 ( 1 % )
+    Total combinational functions : 87 / 6,272 ( 1 % )
     Dedicated logic registers : 27 / 6,272 ( < 1 % )
 Total registers : 27
 Total pins : 11 / 92 ( 12 % )

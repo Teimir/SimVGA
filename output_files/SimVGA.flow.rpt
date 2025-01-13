@@ -1,5 +1,5 @@
 Flow report for SimVGA
-Mon Jan 13 04:53:39 2025
+Mon Jan 13 04:56:24 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Mon Jan 13 04:53:39 2025          ;
+; Flow Status                        ; Successful - Mon Jan 13 04:56:24 2025          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; SimVGA                                         ;
 ; Top-level Entity Name              ; SimVGA                                         ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE6E22C8                                    ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 86 / 6,272 ( 1 % )                             ;
-;     Total combinational functions  ; 86 / 6,272 ( 1 % )                             ;
+; Total logic elements               ; 87 / 6,272 ( 1 % )                             ;
+;     Total combinational functions  ; 87 / 6,272 ( 1 % )                             ;
 ;     Dedicated logic registers      ; 27 / 6,272 ( < 1 % )                           ;
 ; Total registers                    ; 27                                             ;
 ; Total pins                         ; 11 / 92 ( 12 % )                               ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/13/2025 04:53:14 ;
+; Start date & time ; 01/13/2025 04:56:01 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SimVGA              ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 2544449756291.173673319401228          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 2544449756291.173673336163056          ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -110,12 +110,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4852 MB             ; 00:00:30                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4852 MB             ; 00:00:26                           ;
 ; Fitter               ; 00:00:03     ; 1.1                     ; 6494 MB             ; 00:00:05                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.2                     ; 4868 MB             ; 00:00:02                           ;
+; Assembler            ; 00:00:00     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.2                     ; 4876 MB             ; 00:00:02                           ;
 ; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4643 MB             ; 00:00:00                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:38                           ;
+; Total                ; 00:00:18     ; --                      ; --                  ; 00:00:34                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
