@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SimVGA
-Mon Jan 13 04:56:14 2025
+Mon Jan 13 23:10:52 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -13,16 +13,29 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: PLL_clk10MHz:U0|altpll:altpll_component
- 11. Parameter Settings for User Entity Instance: vga:u0
- 12. altpll Parameter Settings by Entity Instance
- 13. Port Connectivity Checks: "vga:u0"
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |SimVGA|ps2:u1|state
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for altsyncram:charf_rtl_0|altsyncram_m2h1:auto_generated
+ 15. Parameter Settings for User Entity Instance: PLL_clk10MHz:U0|altpll:altpll_component
+ 16. Parameter Settings for User Entity Instance: vga:u0
+ 17. Parameter Settings for User Entity Instance: ps2:u1|deb:deb_inst
+ 18. Parameter Settings for Inferred Entity Instance: altsyncram:charf_rtl_0
+ 19. altpll Parameter Settings by Entity Instance
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "ps2:u1|hex:hex_inst_4"
+ 22. Port Connectivity Checks: "ps2:u1|hex:hex_inst_3"
+ 23. Port Connectivity Checks: "ps2:u1|hex:hex_inst_2"
+ 24. Port Connectivity Checks: "ps2:u1|hex:hex_inst_1"
+ 25. Port Connectivity Checks: "ps2:u1"
+ 26. Port Connectivity Checks: "vga:u0"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+ 30. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -49,18 +62,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jan 13 04:56:14 2025          ;
+; Analysis & Synthesis Status        ; Successful - Mon Jan 13 23:10:52 2025          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; SimVGA                                         ;
 ; Top-level Entity Name              ; SimVGA                                         ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 87                                             ;
-;     Total combinational functions  ; 87                                             ;
-;     Dedicated logic registers      ; 27                                             ;
-; Total registers                    ; 27                                             ;
-; Total pins                         ; 11                                             ;
+; Total logic elements               ; 276                                            ;
+;     Total combinational functions  ; 260                                            ;
+;     Dedicated logic registers      ; 158                                            ;
+; Total registers                    ; 158                                            ;
+; Total pins                         ; 24                                             ;
 ; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
+; Total memory bits                  ; 14,400                                         ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
 ; Total PLLs                         ; 1                                              ;
 +------------------------------------+------------------------------------------------+
@@ -76,6 +89,8 @@ https://fpgasoftware.intel.com/eula.
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Verilog Show LMF Mapping Messages                                ; Off                ;                    ;
 ; Verilog Version                                                  ; SystemVerilog_2005 ; Verilog_2001       ;
+; Auto RAM to Logic Cell Conversion                                ; On                 ; Off                ;
+; Auto Resource Sharing                                            ; On                 ; Off                ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
@@ -121,8 +136,6 @@ https://fpgasoftware.intel.com/eula.
 ; Allow Synchronous Control Signals                                ; On                 ; On                 ;
 ; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
 ; Auto RAM Block Balancing                                         ; On                 ; On                 ;
-; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
-; Auto Resource Sharing                                            ; Off                ; Off                ;
 ; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
 ; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
 ; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
@@ -170,56 +183,69 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
-; PLL_clk10MHz.v                   ; yes             ; User Wizard-Generated File   ; C:/projects/SimVGA/PLL_clk10MHz.v                                           ;         ;
-; SimVGA.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/projects/SimVGA/SimVGA.sv                                                ;         ;
-; vga.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/projects/SimVGA/vga.sv                                                   ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf        ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc    ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_pll.inc   ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratixii_pll.inc ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/cycloneii_pll.inc ;         ;
-; db/pll_clk10mhz_altpll.v         ; yes             ; Auto-Generated Megafunction  ; C:/projects/SimVGA/db/pll_clk10mhz_altpll.v                                 ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                              ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
+; PLL_clk10MHz.v                   ; yes             ; User Wizard-Generated File         ; C:/projects/SimVGA/PLL_clk10MHz.v                                               ;         ;
+; SimVGA.sv                        ; yes             ; User SystemVerilog HDL File        ; C:/projects/SimVGA/SimVGA.sv                                                    ;         ;
+; vga.sv                           ; yes             ; User SystemVerilog HDL File        ; C:/projects/SimVGA/vga.sv                                                       ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; db/pll_clk10mhz_altpll.v         ; yes             ; Auto-Generated Megafunction        ; C:/projects/SimVGA/db/pll_clk10mhz_altpll.v                                     ;         ;
+; ps2.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; C:/projects/SimVGA/ps2.sv                                                       ;         ;
+; hex.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; C:/projects/SimVGA/hex.sv                                                       ;         ;
+; deb.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; C:/projects/SimVGA/deb.sv                                                       ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_m2h1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/projects/SimVGA/db/altsyncram_m2h1.tdf                                       ;         ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                                               ;
-+---------------------------------------------+---------------------------------------------------------------------------------------------+
-; Resource                                    ; Usage                                                                                       ;
-+---------------------------------------------+---------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 87                                                                                          ;
-;                                             ;                                                                                             ;
-; Total combinational functions               ; 87                                                                                          ;
-; Logic element usage by number of LUT inputs ;                                                                                             ;
-;     -- 4 input functions                    ; 29                                                                                          ;
-;     -- 3 input functions                    ; 16                                                                                          ;
-;     -- <=2 input functions                  ; 42                                                                                          ;
-;                                             ;                                                                                             ;
-; Logic elements by mode                      ;                                                                                             ;
-;     -- normal mode                          ; 47                                                                                          ;
-;     -- arithmetic mode                      ; 40                                                                                          ;
-;                                             ;                                                                                             ;
-; Total registers                             ; 27                                                                                          ;
-;     -- Dedicated logic registers            ; 27                                                                                          ;
-;     -- I/O registers                        ; 0                                                                                           ;
-;                                             ;                                                                                             ;
-; I/O pins                                    ; 11                                                                                          ;
-;                                             ;                                                                                             ;
-; Embedded Multiplier 9-bit elements          ; 0                                                                                           ;
-;                                             ;                                                                                             ;
-; Total PLLs                                  ; 1                                                                                           ;
-;     -- PLLs                                 ; 1                                                                                           ;
-;                                             ;                                                                                             ;
-; Maximum fan-out node                        ; PLL_clk10MHz:U0|altpll:altpll_component|PLL_clk10MHz_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 28                                                                                          ;
-; Total fan-out                               ; 337                                                                                         ;
-; Average fan-out                             ; 2.46                                                                                        ;
-+---------------------------------------------+---------------------------------------------------------------------------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 276       ;
+;                                             ;           ;
+; Total combinational functions               ; 260       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 106       ;
+;     -- 3 input functions                    ; 30        ;
+;     -- <=2 input functions                  ; 124       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 189       ;
+;     -- arithmetic mode                      ; 71        ;
+;                                             ;           ;
+; Total registers                             ; 158       ;
+;     -- Dedicated logic registers            ; 158       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 24        ;
+; Total memory bits                           ; 14400     ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Total PLLs                                  ; 1         ;
+;     -- PLLs                                 ; 1         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 134       ;
+; Total fan-out                               ; 1284      ;
+; Average fan-out                             ; 2.72      ;
++---------------------------------------------+-----------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -227,13 +253,55 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name         ; Library Name ;
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+---------------------+--------------+
-; |SimVGA                                       ; 87 (35)             ; 27 (0)                    ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |SimVGA                                                                            ; SimVGA              ; work         ;
+; |SimVGA                                       ; 260 (92)            ; 158 (49)                  ; 14400       ; 0            ; 0       ; 0         ; 24   ; 0            ; |SimVGA                                                                            ; SimVGA              ; work         ;
 ;    |PLL_clk10MHz:U0|                          ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|PLL_clk10MHz:U0                                                            ; PLL_clk10MHz        ; work         ;
 ;       |altpll:altpll_component|               ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|PLL_clk10MHz:U0|altpll:altpll_component                                    ; altpll              ; work         ;
 ;          |PLL_clk10MHz_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|PLL_clk10MHz:U0|altpll:altpll_component|PLL_clk10MHz_altpll:auto_generated ; PLL_clk10MHz_altpll ; work         ;
-;    |vga:u0|                                   ; 52 (52)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|vga:u0                                                                     ; vga                 ; work         ;
+;    |altsyncram:charf_rtl_0|                   ; 0 (0)               ; 0 (0)                     ; 14400       ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|altsyncram:charf_rtl_0                                                     ; altsyncram          ; work         ;
+;       |altsyncram_m2h1:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 14400       ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|altsyncram:charf_rtl_0|altsyncram_m2h1:auto_generated                      ; altsyncram_m2h1     ; work         ;
+;    |ps2:u1|                                   ; 109 (99)            ; 81 (71)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|ps2:u1                                                                     ; ps2                 ; work         ;
+;       |deb:deb_inst|                          ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|ps2:u1|deb:deb_inst                                                        ; deb                 ; work         ;
+;       |hex:hex_inst_1|                        ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|ps2:u1|hex:hex_inst_1                                                      ; hex                 ; work         ;
+;       |hex:hex_inst_2|                        ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|ps2:u1|hex:hex_inst_2                                                      ; hex                 ; work         ;
+;       |hex:hex_inst_3|                        ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|ps2:u1|hex:hex_inst_3                                                      ; hex                 ; work         ;
+;       |hex:hex_inst_4|                        ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|ps2:u1|hex:hex_inst_4                                                      ; hex                 ; work         ;
+;    |vga:u0|                                   ; 59 (59)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SimVGA|vga:u0                                                                     ; vga                 ; work         ;
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                      ;
++------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; altsyncram:charf_rtl_0|altsyncram_m2h1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4800         ; 3            ; 4800         ; 3            ; 14400 ; None ;
++------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------+
+; State Machine - |SimVGA|ps2:u1|state                      ;
++-----------+-----------+-----------+-----------+-----------+
+; Name      ; state.FMN ; state.SMN ; state.FHN ; state.SHN ;
++-----------+-----------+-----------+-----------+-----------+
+; state.SHN ; 0         ; 0         ; 0         ; 0         ;
+; state.FHN ; 0         ; 0         ; 1         ; 1         ;
+; state.SMN ; 0         ; 1         ; 0         ; 1         ;
+; state.FMN ; 1         ; 0         ; 0         ; 1         ;
++-----------+-----------+-----------+-----------+-----------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; ps2:u1|code[1..6]                     ; Stuck at GND due to stuck port data_in ;
+; ps2:u1|state~2                        ; Lost fanout                            ;
+; ps2:u1|state~3                        ; Lost fanout                            ;
+; Total Number of Removed Registers = 8 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -241,23 +309,44 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 27    ;
+; Total registers                              ; 158   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Clock Enable       ; 95    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |SimVGA|vga:u0|d_vpos[9]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++---------------+--------------+---------------+
+; Register Name ; Megafunction ; Type          ;
++---------------+--------------+---------------+
+; out[0..2]     ; charf_rtl_0  ; RAM           ;
++---------------+--------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |SimVGA|ps2:u1|cnt_reg[3]   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |SimVGA|ps2:u1|data_reg[10] ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |SimVGA|vga:u0|d_vpos[2]    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |SimVGA|charf               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+
+
++------------------------------------------------------------------------------+
+; Source assignments for altsyncram:charf_rtl_0|altsyncram_m2h1:auto_generated ;
++---------------------------------+--------------------+------+----------------+
+; Assignment                      ; Value              ; From ; To             ;
++---------------------------------+--------------------+------+----------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -              ;
++---------------------------------+--------------------+------+----------------+
 
 
 +--------------------------------------------------------------------------------------+
@@ -645,14 +734,85 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; H_DISPLAY           ; 640   ; Signed Integer        ;
 ; H_FRONT             ; 16    ; Signed Integer        ;
 ; H_SYNC              ; 96    ; Signed Integer        ;
-; H_BACK              ; 48    ; Signed Integer        ;
+; H_BACK              ; 46    ; Signed Integer        ;
 ; V_DISPLAY           ; 480   ; Signed Integer        ;
 ; V_BOTTOM            ; 10    ; Signed Integer        ;
 ; V_SYNC              ; 2     ; Signed Integer        ;
-; V_TOP               ; 33    ; Signed Integer        ;
+; V_TOP               ; 31    ; Signed Integer        ;
 ; CLK_MHZ             ; 25    ; Signed Integer        ;
 ; PIXEL_MHZ           ; 25    ; Signed Integer        ;
 +---------------------+-------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ps2:u1|deb:deb_inst ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; WIDTH          ; 3     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:charf_rtl_0    ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped        ;
+; WIDTH_A                            ; 3                    ; Untyped        ;
+; WIDTHAD_A                          ; 13                   ; Untyped        ;
+; NUMWORDS_A                         ; 4800                 ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 3                    ; Untyped        ;
+; WIDTHAD_B                          ; 13                   ; Untyped        ;
+; NUMWORDS_B                         ; 4800                 ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; UNUSED               ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_m2h1      ; Untyped        ;
++------------------------------------+----------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -673,6 +833,72 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-----------------------------------------+
 
 
++--------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                   ;
++-------------------------------------------+------------------------+
+; Name                                      ; Value                  ;
++-------------------------------------------+------------------------+
+; Number of entity instances                ; 1                      ;
+; Entity Instance                           ; altsyncram:charf_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT              ;
+;     -- WIDTH_A                            ; 3                      ;
+;     -- NUMWORDS_A                         ; 4800                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED           ;
+;     -- WIDTH_B                            ; 3                      ;
+;     -- NUMWORDS_B                         ; 4800                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA               ;
++-------------------------------------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2:u1|hex:hex_inst_4"                                                                                                 ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; out  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "out[6..1]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2:u1|hex:hex_inst_3"                                                                                                 ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; out  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "out[6..1]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2:u1|hex:hex_inst_2"                                                                                                 ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; out  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "out[6..1]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2:u1|hex:hex_inst_1"                                                                                                 ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; out  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "out[6..1]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2:u1"                                                                                                                                                                                ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rst_n     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rst_n[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "vga:u0"                                                                                                                                                                                  ;
 +------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -680,7 +906,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; rst        ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
 ; rst[-1]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; display_on ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; hpos[9..6] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; hpos[2..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; vpos[2..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
 ; pixel_clk  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                           ;
 +------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -690,24 +918,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 11                          ;
-; cycloneiii_ff         ; 27                          ;
-;     ENA               ; 21                          ;
-;     plain             ; 6                           ;
-; cycloneiii_lcell_comb ; 91                          ;
-;     arith             ; 40                          ;
-;         2 data inputs ; 32                          ;
-;         3 data inputs ; 8                           ;
-;     normal            ; 51                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 8                           ;
-;         4 data inputs ; 29                          ;
+; boundary_port         ; 24                          ;
+; cycloneiii_ff         ; 158                         ;
+;     ENA               ; 95                          ;
+;     plain             ; 63                          ;
+; cycloneiii_io_obuf    ; 2                           ;
+; cycloneiii_lcell_comb ; 264                         ;
+;     arith             ; 71                          ;
+;         2 data inputs ; 70                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 193                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 43                          ;
+;         3 data inputs ; 29                          ;
+;         4 data inputs ; 106                         ;
 ; cycloneiii_pll        ; 1                           ;
+; cycloneiii_ram_block  ; 3                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.50                        ;
-; Average LUT depth     ; 4.86                        ;
+; Max LUT depth         ; 7.80                        ;
+; Average LUT depth     ; 3.94                        ;
 +-----------------------+-----------------------------+
 
 
@@ -716,7 +946,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -726,25 +956,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Jan 13 04:56:01 2025
+    Info: Processing started: Mon Jan 13 23:10:41 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SimVGA -c SimVGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file pll_clk10mhz.v
     Info (12023): Found entity 1: PLL_clk10MHz File: C:/projects/SimVGA/PLL_clk10MHz.v Line: 40
-Warning (10275): Verilog HDL Module Instantiation warning at SimVGA.sv(27): ignored dangling comma in List of Port Connections File: C:/projects/SimVGA/SimVGA.sv Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file simvga.sv
     Info (12023): Found entity 1: SimVGA File: C:/projects/SimVGA/SimVGA.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vga.sv
     Info (12023): Found entity 1: vga File: C:/projects/SimVGA/vga.sv Line: 5
-Warning (10236): Verilog HDL Implicit Net warning at SimVGA.sv(24): created implicit net for "display_on" File: C:/projects/SimVGA/SimVGA.sv Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file vram.v
+    Info (12023): Found entity 1: vRam File: C:/projects/SimVGA/vRam.v Line: 40
 Info (12127): Elaborating entity "SimVGA" for the top level hierarchy
-Warning (10858): Verilog HDL warning at SimVGA.sv(10): object video_on used but never assigned File: C:/projects/SimVGA/SimVGA.sv Line: 10
-Warning (10030): Net "charf.data_a" at SimVGA.sv(40) has no driver or initial value, using a default initial value '0' File: C:/projects/SimVGA/SimVGA.sv Line: 40
-Warning (10030): Net "charf.waddr_a" at SimVGA.sv(40) has no driver or initial value, using a default initial value '0' File: C:/projects/SimVGA/SimVGA.sv Line: 40
-Warning (10030): Net "video_on" at SimVGA.sv(10) has no driver or initial value, using a default initial value '0' File: C:/projects/SimVGA/SimVGA.sv Line: 10
-Warning (10030): Net "charf.we_a" at SimVGA.sv(40) has no driver or initial value, using a default initial value '0' File: C:/projects/SimVGA/SimVGA.sv Line: 40
-Info (12128): Elaborating entity "PLL_clk10MHz" for hierarchy "PLL_clk10MHz:U0" File: C:/projects/SimVGA/SimVGA.sv Line: 16
+Warning (10230): Verilog HDL assignment warning at SimVGA.sv(93): truncated value with size 32 to match size of target (3) File: C:/projects/SimVGA/SimVGA.sv Line: 93
+Info (12128): Elaborating entity "PLL_clk10MHz" for hierarchy "PLL_clk10MHz:U0" File: C:/projects/SimVGA/SimVGA.sv Line: 21
 Info (12128): Elaborating entity "altpll" for hierarchy "PLL_clk10MHz:U0|altpll:altpll_component" File: C:/projects/SimVGA/PLL_clk10MHz.v Line: 91
 Info (12130): Elaborated megafunction instantiation "PLL_clk10MHz:U0|altpll:altpll_component" File: C:/projects/SimVGA/PLL_clk10MHz.v Line: 91
 Info (12133): Instantiated megafunction "PLL_clk10MHz:U0|altpll:altpll_component" with the following parameter: File: C:/projects/SimVGA/PLL_clk10MHz.v Line: 91
@@ -805,33 +1031,83 @@ Info (12133): Instantiated megafunction "PLL_clk10MHz:U0|altpll:altpll_component
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_clk10mhz_altpll.v
     Info (12023): Found entity 1: PLL_clk10MHz_altpll File: C:/projects/SimVGA/db/pll_clk10mhz_altpll.v Line: 30
 Info (12128): Elaborating entity "PLL_clk10MHz_altpll" for hierarchy "PLL_clk10MHz:U0|altpll:altpll_component|PLL_clk10MHz_altpll:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga" for hierarchy "vga:u0" File: C:/projects/SimVGA/SimVGA.sv Line: 27
+Info (12128): Elaborating entity "vga" for hierarchy "vga:u0" File: C:/projects/SimVGA/SimVGA.sv Line: 32
 Warning (10230): Verilog HDL assignment warning at vga.sv(94): truncated value with size 32 to match size of target (4) File: C:/projects/SimVGA/vga.sv Line: 94
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "charf" is uninferred due to asynchronous read logic File: C:/projects/SimVGA/SimVGA.sv Line: 40
-Warning (113018): Width of data items in "SimVGA.ram0_SimVGA_b1a470e5.hdl.mif" is greater than the memory width. Truncating data items to fit in memory. File: C:/projects/SimVGA/db/SimVGA.ram0_SimVGA_b1a470e5.hdl.mif Line: 10
-Critical Warning (127005): Memory depth (8192) in the design file differs from memory depth (80) in the Memory Initialization File "C:/projects/SimVGA/db/SimVGA.ram0_SimVGA_b1a470e5.hdl.mif" -- setting initial value for remaining addresses to 0
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12125): Using design file ps2.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: ps2 File: C:/projects/SimVGA/ps2.sv Line: 1
+Info (12128): Elaborating entity "ps2" for hierarchy "ps2:u1" File: C:/projects/SimVGA/SimVGA.sv Line: 41
+Warning (12125): Using design file hex.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: hex File: C:/projects/SimVGA/hex.sv Line: 1
+Info (12128): Elaborating entity "hex" for hierarchy "ps2:u1|hex:hex_inst_1" File: C:/projects/SimVGA/ps2.sv Line: 38
+Warning (12125): Using design file deb.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: deb File: C:/projects/SimVGA/deb.sv Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at deb.sv(19): created implicit net for "in_changed" File: C:/projects/SimVGA/deb.sv Line: 19
+Warning (10236): Verilog HDL Implicit Net warning at deb.sv(20): created implicit net for "in_stable" File: C:/projects/SimVGA/deb.sv Line: 20
+Info (12128): Elaborating entity "deb" for hierarchy "ps2:u1|deb:deb_inst" File: C:/projects/SimVGA/ps2.sv Line: 84
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "charf_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 3
+        Info (286033): Parameter WIDTHAD_A set to 13
+        Info (286033): Parameter NUMWORDS_A set to 4800
+        Info (286033): Parameter WIDTH_B set to 3
+        Info (286033): Parameter WIDTHAD_B set to 13
+        Info (286033): Parameter NUMWORDS_B set to 4800
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "altsyncram:charf_rtl_0"
+Info (12133): Instantiated megafunction "altsyncram:charf_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "3"
+    Info (12134): Parameter "WIDTHAD_A" = "13"
+    Info (12134): Parameter "NUMWORDS_A" = "4800"
+    Info (12134): Parameter "WIDTH_B" = "3"
+    Info (12134): Parameter "WIDTHAD_B" = "13"
+    Info (12134): Parameter "NUMWORDS_B" = "4800"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m2h1.tdf
+    Info (12023): Found entity 1: altsyncram_m2h1 File: C:/projects/SimVGA/db/altsyncram_m2h1.tdf Line: 28
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "ps_clk" has no driver File: C:/projects/SimVGA/SimVGA.sv Line: 7
+    Warning (13040): bidirectional pin "ps_data" has no driver File: C:/projects/SimVGA/SimVGA.sv Line: 8
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "RGB[2]" is stuck at GND File: C:/projects/SimVGA/SimVGA.sv Line: 4
-    Warning (13410): Pin "leds[2]" is stuck at VCC File: C:/projects/SimVGA/SimVGA.sv Line: 7
-    Warning (13410): Pin "leds[3]" is stuck at VCC File: C:/projects/SimVGA/SimVGA.sv Line: 7
+    Warning (13410): Pin "code[1]" is stuck at GND File: C:/projects/SimVGA/SimVGA.sv Line: 11
+    Warning (13410): Pin "code[2]" is stuck at GND File: C:/projects/SimVGA/SimVGA.sv Line: 11
+    Warning (13410): Pin "code[3]" is stuck at GND File: C:/projects/SimVGA/SimVGA.sv Line: 11
+    Warning (13410): Pin "code[4]" is stuck at GND File: C:/projects/SimVGA/SimVGA.sv Line: 11
+    Warning (13410): Pin "code[5]" is stuck at GND File: C:/projects/SimVGA/SimVGA.sv Line: 11
+    Warning (13410): Pin "code[6]" is stuck at GND File: C:/projects/SimVGA/SimVGA.sv Line: 11
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/projects/SimVGA/output_files/SimVGA.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "rst" File: C:/projects/SimVGA/SimVGA.sv Line: 3
-Info (21057): Implemented 110 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 326 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 98 logic cells
+    Info (21059): Implemented 20 output pins
+    Info (21060): Implemented 2 bidirectional pins
+    Info (21061): Implemented 298 logic cells
+    Info (21064): Implemented 3 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
     Info: Peak virtual memory: 4852 megabytes
-    Info: Processing ended: Mon Jan 13 04:56:14 2025
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:27
+    Info: Processing ended: Mon Jan 13 23:10:52 2025
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:29
 
 
 +------------------------------------------+

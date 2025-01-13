@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy date="2025.01.13.22:24:22" outputDirectory="C:/projects/SimVGA/Ps2/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone IV E"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="EP4CE6E22C8"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="8"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="avalon_ps2_command_sink" kind="avalon_streaming" start="0">
+   <property name="associatedClock" value="clk" />
+   <property name="associatedReset" value="reset" />
+   <property name="beatsPerCycle" value="1" />
+   <property name="dataBitsPerSymbol" value="8" />
+   <property name="emptyWithinPacket" value="false" />
+   <property name="errorDescriptor" value="" />
+   <property name="firstSymbolInHighOrderBits" value="true" />
+   <property name="highOrderSymbolAtMSB" value="false" />
+   <property name="maxChannel" value="0" />
+   <property name="packetDescription" value="" />
+   <property name="readyLatency" value="0" />
+   <property name="symbolsPerBeat" value="1" />
+   <port name="command" direction="input" role="data" width="8" />
+   <port name="command_valid" direction="input" role="valid" width="1" />
+   <port name="command_ready" direction="output" role="ready" width="1" />
+  </interface>
+  <interface name="avalon_ps2_data_source" kind="avalon_streaming" start="1">
+   <property name="associatedClock" value="clk" />
+   <property name="associatedReset" value="reset" />
+   <property name="beatsPerCycle" value="1" />
+   <property name="dataBitsPerSymbol" value="8" />
+   <property name="emptyWithinPacket" value="false" />
+   <property name="errorDescriptor" value="" />
+   <property name="firstSymbolInHighOrderBits" value="true" />
+   <property name="highOrderSymbolAtMSB" value="false" />
+   <property name="maxChannel" value="0" />
+   <property name="packetDescription" value="" />
+   <property name="readyLatency" value="0" />
+   <property name="symbolsPerBeat" value="1" />
+   <port name="data_ready" direction="input" role="ready" width="1" />
+   <port name="data" direction="output" role="data" width="8" />
+   <port name="data_valid" direction="output" role="valid" width="1" />
+  </interface>
+  <interface name="clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="external_interface" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <port name="PS2_CLK" direction="bidir" role="CLK" width="1" />
+   <port name="PS2_DAT" direction="bidir" role="DAT" width="1" />
+  </interface>
+  <interface name="reset" kind="reset" start="0">
+   <property name="associatedClock" value="clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="reset" direction="input" role="reset" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="Ps2:1.0:AUTO_CLK_CLOCK_DOMAIN=-1,AUTO_CLK_CLOCK_RATE=-1,AUTO_CLK_RESET_DOMAIN=-1,AUTO_DEVICE=EP4CE6E22C8,AUTO_DEVICE_FAMILY=Cyclone IV E,AUTO_DEVICE_SPEEDGRADE=8,AUTO_GENERATION_ID=1736796261,AUTO_UNIQUE_ID=(altera_up_avalon_ps2:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone IV E,avalon_bus_type=Streaming,ref_clk_freq=0.0)"
+   instancePathKey="Ps2"
+   kind="Ps2"
+   version="1.0"
+   name="Ps2">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="1736796261" />
+  <parameter name="AUTO_DEVICE" value="EP4CE6E22C8" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
+  <generatedFiles>
+   <file path="C:/projects/SimVGA/Ps2/synthesis/Ps2.v" type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/altera_up_ps2.v"
+       type="VERILOG" />
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/altera_up_ps2_command_out.v"
+       type="VERILOG" />
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/altera_up_ps2_data_in.v"
+       type="VERILOG" />
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/Ps2_ps2_0.v"
+       type="VERILOG" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file path="C:/projects/SimVGA/Ps2.qsys" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/altera_up_avalon_ps2_hw.tcl" />
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/hdl/altera_up_ps2.v" />
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/hdl/altera_up_ps2_command_out.v" />
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/hdl/altera_up_ps2_data_in.v" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="Ps2">queue size: 0 starting:Ps2 "Ps2"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="Ps2"><![CDATA["<b>Ps2</b>" reuses <b>altera_up_avalon_ps2</b> "<b>submodules/Ps2_ps2_0</b>"]]></message>
+   <message level="Debug" culprit="Ps2">queue size: 0 starting:altera_up_avalon_ps2 "submodules/Ps2_ps2_0"</message>
+   <message level="Info" culprit="ps2_0">Starting Generation of PS2 Controller</message>
+   <message level="Error" culprit="ps2_0">The input clock frequency must be known at generation time.</message>
+   <message level="Info" culprit="ps2_0"><![CDATA["<b>Ps2</b>" instantiated <b>altera_up_avalon_ps2</b> "<b>ps2_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_up_avalon_ps2:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone IV E,avalon_bus_type=Streaming,ref_clk_freq=0.0"
+   instancePathKey="Ps2:.:ps2_0"
+   kind="altera_up_avalon_ps2"
+   version="18.0"
+   name="Ps2_ps2_0">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="0" />
+  <parameter name="ref_clk_freq" value="0.0" />
+  <parameter name="avalon_bus_type" value="Streaming" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+  <generatedFiles>
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/altera_up_ps2.v"
+       type="VERILOG" />
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/altera_up_ps2_command_out.v"
+       type="VERILOG" />
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/altera_up_ps2_data_in.v"
+       type="VERILOG" />
+   <file
+       path="C:/projects/SimVGA/Ps2/synthesis/submodules/Ps2_ps2_0.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/altera_up_avalon_ps2_hw.tcl" />
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/hdl/altera_up_ps2.v" />
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/hdl/altera_up_ps2_command_out.v" />
+   <file
+       path="C:/intelfpga_lite/23.1std/ip/altera/university_program/input_output/altera_up_avalon_ps2/hdl/altera_up_ps2_data_in.v" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="Ps2" as="ps2_0" />
+  <messages>
+   <message level="Debug" culprit="Ps2">queue size: 0 starting:altera_up_avalon_ps2 "submodules/Ps2_ps2_0"</message>
+   <message level="Info" culprit="ps2_0">Starting Generation of PS2 Controller</message>
+   <message level="Error" culprit="ps2_0">The input clock frequency must be known at generation time.</message>
+   <message level="Info" culprit="ps2_0"><![CDATA["<b>Ps2</b>" instantiated <b>altera_up_avalon_ps2</b> "<b>ps2_0</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>

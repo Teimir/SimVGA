@@ -14,14 +14,14 @@ module vga
               H_DISPLAY           = 640,  // Horizontal display width
               H_FRONT             =  16,  // Horizontal right border (front porch)
               H_SYNC              =  96,  // Horizontal sync width
-              H_BACK              =  48,  // Horizontal left border (back porch)
+              H_BACK              =  46,  // Horizontal left border (back porch)
 
               // Vertical constants
 
               V_DISPLAY           = 480,  // Vertical display height
               V_BOTTOM            =  10,  // Vertical bottom border
               V_SYNC              =   2,  // Vertical sync # lines
-              V_TOP               =  33,  // Vertical top border
+              V_TOP               =  31,  // Vertical top border
 
               CLK_MHZ             =  25,  // Clock frequency (50 or 100 MHz)
               PIXEL_MHZ           =  25   // Pixel clock frequency of VGA in MHz

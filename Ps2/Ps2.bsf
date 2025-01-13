@@ -1,0 +1,133 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 432 272)
+	(text "Ps2" (rect 205 -1 220 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 256 20 268)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "command[7..0]" (rect 0 0 60 12)(font "Arial" (font_size 8)))
+		(text "command[7..0]" (rect 4 61 82 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 176 72)(line_width 3))
+	)
+	(port
+		(pt 0 88)
+		(input)
+		(text "command_valid" (rect 0 0 63 12)(font "Arial" (font_size 8)))
+		(text "command_valid" (rect 4 77 82 88)(font "Arial" (font_size 8)))
+		(line (pt 0 88)(pt 176 88)(line_width 1))
+	)
+	(port
+		(pt 432 72)
+		(input)
+		(text "data_ready" (rect 0 0 46 12)(font "Arial" (font_size 8)))
+		(text "data_ready" (rect 374 61 434 72)(font "Arial" (font_size 8)))
+		(line (pt 432 72)(pt 256 72)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" (font_size 8)))
+		(text "clk" (rect 4 133 22 144)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 176 144)(line_width 1))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "reset" (rect 0 0 20 12)(font "Arial" (font_size 8)))
+		(text "reset" (rect 4 229 34 240)(font "Arial" (font_size 8)))
+		(line (pt 0 240)(pt 176 240)(line_width 1))
+	)
+	(port
+		(pt 0 104)
+		(output)
+		(text "command_ready" (rect 0 0 69 12)(font "Arial" (font_size 8)))
+		(text "command_ready" (rect 4 93 82 104)(font "Arial" (font_size 8)))
+		(line (pt 0 104)(pt 176 104)(line_width 1))
+	)
+	(port
+		(pt 432 88)
+		(output)
+		(text "data[7..0]" (rect 0 0 36 12)(font "Arial" (font_size 8)))
+		(text "data[7..0]" (rect 385 77 445 88)(font "Arial" (font_size 8)))
+		(line (pt 432 88)(pt 256 88)(line_width 3))
+	)
+	(port
+		(pt 432 104)
+		(output)
+		(text "data_valid" (rect 0 0 40 12)(font "Arial" (font_size 8)))
+		(text "data_valid" (rect 380 93 440 104)(font "Arial" (font_size 8)))
+		(line (pt 432 104)(pt 256 104)(line_width 1))
+	)
+	(port
+		(pt 0 184)
+		(bidir)
+		(text "PS2_CLK" (rect 0 0 42 12)(font "Arial" (font_size 8)))
+		(text "PS2_CLK" (rect 4 173 46 184)(font "Arial" (font_size 8)))
+		(line (pt 0 184)(pt 176 184)(line_width 1))
+	)
+	(port
+		(pt 0 200)
+		(bidir)
+		(text "PS2_DAT" (rect 0 0 43 12)(font "Arial" (font_size 8)))
+		(text "PS2_DAT" (rect 4 189 46 200)(font "Arial" (font_size 8)))
+		(line (pt 0 200)(pt 176 200)(line_width 1))
+	)
+	(drawing
+		(text "avalon_ps2_command_sink" (rect 15 43 168 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "data" (rect 181 67 386 144)(font "Arial" (color 0 0 0)))
+		(text "valid" (rect 181 83 392 176)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 181 99 392 208)(font "Arial" (color 0 0 0)))
+		(text "avalon_ps2_data_source" (rect 257 43 646 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "ready" (rect 228 67 486 144)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 235 83 494 176)(font "Arial" (color 0 0 0)))
+		(text "valid" (rect 233 99 496 208)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 161 115 340 243)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 181 139 380 288)(font "Arial" (color 0 0 0)))
+		(text "external_interface" (rect 72 155 252 323)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "CLK" (rect 181 179 380 368)(font "Arial" (color 0 0 0)))
+		(text "DAT" (rect 181 195 380 400)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 147 211 324 435)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset" (rect 181 235 392 480)(font "Arial" (color 0 0 0)))
+		(text " Ps2 " (rect 413 256 856 522)(font "Arial" ))
+		(line (pt 176 32)(pt 256 32)(line_width 1))
+		(line (pt 256 32)(pt 256 256)(line_width 1))
+		(line (pt 176 256)(pt 256 256)(line_width 1))
+		(line (pt 176 32)(pt 176 256)(line_width 1))
+		(line (pt 177 52)(pt 177 108)(line_width 1))
+		(line (pt 178 52)(pt 178 108)(line_width 1))
+		(line (pt 255 52)(pt 255 108)(line_width 1))
+		(line (pt 254 52)(pt 254 108)(line_width 1))
+		(line (pt 177 124)(pt 177 148)(line_width 1))
+		(line (pt 178 124)(pt 178 148)(line_width 1))
+		(line (pt 177 164)(pt 177 204)(line_width 1))
+		(line (pt 178 164)(pt 178 204)(line_width 1))
+		(line (pt 177 220)(pt 177 244)(line_width 1))
+		(line (pt 178 220)(pt 178 244)(line_width 1))
+		(line (pt 0 0)(pt 432 0)(line_width 1))
+		(line (pt 432 0)(pt 432 272)(line_width 1))
+		(line (pt 0 272)(pt 432 272)(line_width 1))
+		(line (pt 0 0)(pt 0 272)(line_width 1))
+	)
+)

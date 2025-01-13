@@ -1,15 +1,30 @@
 |SimVGA
-clk => clk.IN1
-rst => ~NO_FANOUT~
-RGB[0] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-RGB[1] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-RGB[2] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-HVsync[0] <= vga:u0.hsync
-HVsync[1] <= vga:u0.vsync
-leds[0] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= <VCC>
+clk => clk.IN2
+rst => charf.OUTPUTSELECT
+rst => charf.OUTPUTSELECT
+rst => charf.OUTPUTSELECT
+RGB[0] << RGB.DB_MAX_OUTPUT_PORT_TYPE
+RGB[1] << RGB.DB_MAX_OUTPUT_PORT_TYPE
+RGB[2] << RGB.DB_MAX_OUTPUT_PORT_TYPE
+HVsync[0] << vga:u0.hsync
+HVsync[1] << vga:u0.vsync
+leds[0] << RGB.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] << RGB.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] << RGB.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] << vga:u0.display_on
+ps_clk <> ps2:u1.ps2_clk
+ps_data <> ps2:u1.ps2_data
+DIG[0] << ps2:u1.DIG
+DIG[1] << ps2:u1.DIG
+DIG[2] << ps2:u1.DIG
+DIG[3] << ps2:u1.DIG
+code[0] << ps2:u1.code
+code[1] << ps2:u1.code
+code[2] << ps2:u1.code
+code[3] << ps2:u1.code
+code[4] << ps2:u1.code
+code[5] << ps2:u1.code
+code[6] << ps2:u1.code
 
 
 |SimVGA|PLL_clk10MHz:U0
@@ -169,5 +184,126 @@ vpos[7] <= vpos[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vpos[8] <= vpos[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vpos[9] <= vpos[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 pixel_clk <= clk.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SimVGA|ps2:u1
+clk => clk.IN5
+rst_n => rst_n.IN1
+ps2_clk => ps2_clk.IN1
+ps2_data => always2.IN1
+ps2_data => always2.IN1
+ps2_data => package_reg[10].DATAIN
+DIG[0] <= DIG[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DIG[1] <= DIG[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DIG[2] <= DIG[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DIG[3] <= DIG[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+code[0] <= code[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+code[1] <= code[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+code[2] <= code[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+code[3] <= code[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+code[4] <= code[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+code[5] <= code[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+code[6] <= code[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SimVGA|ps2:u1|hex:hex_inst_1
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+clk => out[4]~reg0.CLK
+clk => out[5]~reg0.CLK
+clk => out[6]~reg0.CLK
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SimVGA|ps2:u1|hex:hex_inst_2
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+clk => out[4]~reg0.CLK
+clk => out[5]~reg0.CLK
+clk => out[6]~reg0.CLK
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SimVGA|ps2:u1|hex:hex_inst_3
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+clk => out[4]~reg0.CLK
+clk => out[5]~reg0.CLK
+clk => out[6]~reg0.CLK
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SimVGA|ps2:u1|hex:hex_inst_4
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+clk => out[4]~reg0.CLK
+clk => out[5]~reg0.CLK
+clk => out[6]~reg0.CLK
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SimVGA|ps2:u1|deb:deb_inst
+clk => cnt_reg[0].CLK
+clk => cnt_reg[1].CLK
+clk => cnt_reg[2].CLK
+clk => ff_reg[0].CLK
+clk => ff_reg[1].CLK
+clk => out_reg.CLK
+rst_n => cnt_reg[0].ACLR
+rst_n => cnt_reg[1].ACLR
+rst_n => cnt_reg[2].ACLR
+rst_n => ff_reg[0].ACLR
+rst_n => ff_reg[1].ACLR
+rst_n => out_reg.ACLR
+in => ff_reg[0].DATAIN
+out <= out_reg.DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -12,6 +12,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "RGB[2]",
+					"strict" : false
+				},
+				{
 					"name" : "HVsync[0]",
 					"strict" : false
 				},
@@ -25,6 +29,50 @@
 				},
 				{
 					"name" : "leds[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DIG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DIG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DIG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DIG[3]",
+					"strict" : false
+				},
+				{
+					"name" : "code[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ps_clk",
+					"strict" : false
+				},
+				{
+					"name" : "ps_data",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
 					"strict" : false
 				}
 			]
