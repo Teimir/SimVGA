@@ -99,6 +99,8 @@ module vga
         end
     end
 
+
+
     // Making all outputs registered
 
     always_ff @ (posedge clk or posedge rst)
@@ -111,7 +113,7 @@ module vga
             hpos        <= 1'b0;
             vpos        <= 1'b0;
         end
-        else if (clk_en)
+        else
         begin
             hsync       <= ~ (    d_hpos >= H_SYNC_START
                                && d_hpos <= H_SYNC_END   );

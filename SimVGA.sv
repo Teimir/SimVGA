@@ -8,27 +8,32 @@ module SimVGA(
 
 wire [9:0] HVpos [2];
 wire video_on;
-wire clk10;
+wire clk25;
 
 PLL_clk10MHz U0(
 .inclk0(clk),
-.c0(clk10)
+.c0(clk25)
 );
 
-VGA_controller U1(
-.clk(clk10),
-.reset_n(rst),
-.video_on(video_on),
-.pixel_x(HVpos[0]),
-.pixel_y(HVpos[1]),
-.hsync(HVsync[0]),
-.vsync(HVsync[1])
+vga u0
+(
+    .clk(clk25),
+    .rst(0),
+    .hsync(HVsync[0]),
+    .vsync(HVsync[1]),
+    .display_on(display_on),
+    .hpos(HVpos[0]),
+    .vpos(HVpos[1]),
 );
+
 
 always_comb begin
-	RGB[0] = HVpos[0] > 10'd320 ? 1 : 0;
-	RGB[1] = HVpos[0] > 10'd320 ? 1 : 0;
-	RGB[2] = HVpos[0] > 10'd320 ? 1 : 0;
+	if (display_on) begin
+		RGB[0] = HVpos[0] > 10'd320 ? 1 : 0;
+		RGB[1] = HVpos[0] > 10'd320 ? 1 : 0;
+		RGB[2] = HVpos[0] > 10'd320 ? 1 : 0;
+		end
+	else RGB = 3'd0;
 end
 
 
