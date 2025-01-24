@@ -33,7 +33,7 @@ module ps2 (
 	localparam STATE_RECEIVE = 1'b1;				//package is being received
 
 	reg state_reg, state_next;					//stores the current state
-    wire byte_h_digit_h, byte_h_digit_l, byte_l_digit_h, byte_l_digit_l;
+    wire [6:0] byte_h_digit_h, byte_h_digit_l, byte_l_digit_h, byte_l_digit_l;
 	/* displaying 'data_reg' on four 7SEG displays */
 	hex hex_inst_1 (.clk(clk), .in(data_reg[15:12]), .out(byte_h_digit_h));
 	hex hex_inst_2 (.clk(clk), .in(data_reg[11:8]),  .out(byte_h_digit_l));
@@ -50,22 +50,22 @@ module ps2 (
 			case(state)
 				FMN: begin
 					DIG <= 4'b1110;
-					code <= byte_l_digit_l;
+					code <= ~byte_l_digit_l;
 					state <= SMN;
 				end
 				SMN: begin
 					DIG <= 4'b1101;
-					code <= byte_l_digit_h;
+					code <= ~byte_l_digit_h;
 					state <= FHN;
 				end
 				FHN: begin
 					DIG <= 4'b1011;
-					code <= byte_h_digit_l;
+					code <= ~byte_h_digit_l;
 					state <= SHN;
 				end
 				SHN: begin
 					DIG <= 4'b0111;
-					code <= byte_h_digit_h;
+					code <= ~byte_h_digit_h;
 					state <= FMN;
 				end
 			endcase

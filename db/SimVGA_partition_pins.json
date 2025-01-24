@@ -60,6 +60,30 @@
 					"strict" : false
 				},
 				{
+					"name" : "code[1]",
+					"strict" : false
+				},
+				{
+					"name" : "code[2]",
+					"strict" : false
+				},
+				{
+					"name" : "code[3]",
+					"strict" : false
+				},
+				{
+					"name" : "code[4]",
+					"strict" : false
+				},
+				{
+					"name" : "code[5]",
+					"strict" : false
+				},
+				{
+					"name" : "code[6]",
+					"strict" : false
+				},
+				{
 					"name" : "ps_clk",
 					"strict" : false
 				},

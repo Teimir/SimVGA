@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Jan 13 23:10:52 2025
+Analysis & Synthesis Status : Successful - Fri Jan 24 16:10:10 2025
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : SimVGA
 Top-level Entity Name : SimVGA
 Family : Cyclone IV E
-Total logic elements : 276
-    Total combinational functions : 260
-    Dedicated logic registers : 158
-Total registers : 158
+Total logic elements : 312
+    Total combinational functions : 296
+    Dedicated logic registers : 188
+Total registers : 188
 Total pins : 24
 Total virtual pins : 0
 Total memory bits : 14,400

@@ -1,7 +1,7 @@
 module hex (
     input      [3:0] in ,
     input            clk, 
-    output reg [6:0] out
+    output [6:0] out
 );
 
     always_ff @(posedge clk) begin
